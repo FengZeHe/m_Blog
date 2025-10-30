@@ -1,26 +1,27 @@
 <template>
   <div id="app">
-    <Avatar url="https://pic1.arkoo.com/56D0B40F99F841DF8A2425762AE2565D/picture/o_1i4qop009177v1tgf14db15he1iaj1is.jpg" 
-        :width="50" :height="50"
-    />
-    <Icon class="icon" iconType="home" />
+    <Pager :currentPage=currentPage :count="10" @pageChange="handlePageChange($event)"></Pager>
   </div>
 </template>
 
 <script>
 import Avatar from './components/Avatar';
 import Icon from './components/Icon';
+import Pager from './components/Pager';
 export default {
-  components: { Avatar ,Icon},
+  components: { Avatar, Icon, Pager },
   name: 'App',
-  comments:{
-    Avatar,
-    Icon,
+  data() {
+    return {
+      currentPage: 1,
+    }
+  },
+  methods: {
+    handlePageChange(changePage) {
+      this.currentPage = changePage;
+    }
   }
 }
 </script>
 
-<style scoped>
-
-
-</style>
+<style scoped></style>
