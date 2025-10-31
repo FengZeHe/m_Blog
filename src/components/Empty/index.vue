@@ -27,6 +27,7 @@ export default {
 
 .empty-container{
     .self-center();
+    color: @gray;
     text-align: center;
 }
 
