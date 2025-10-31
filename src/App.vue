@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <Pager :currentPage=currentPage :count="100"  @pageChange="handlePageChange($event)"></Pager>
+    <!-- <Pager :currentPage=currentPage :count="100"  @pageChange="handlePageChange($event)"></Pager> -->
+    <Empty></Empty>
   </div>
 </template>
 
@@ -8,8 +9,9 @@
 import Avatar from './components/Avatar';
 import Icon from './components/Icon';
 import Pager from './components/Pager';
+import Empty from './components/Empty';
 export default {
-  components: { Avatar, Icon, Pager },
+  components: { Avatar, Icon, Pager,Empty },
   name: 'App',
   data() {
     return {
