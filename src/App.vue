@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Pager :currentPage=currentPage :count="10" @pageChange="handlePageChange($event)"></Pager>
+    <Pager :currentPage=currentPage :count="100"  @pageChange="handlePageChange($event)"></Pager>
   </div>
 </template>
 
