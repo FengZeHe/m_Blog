@@ -1,6 +1,6 @@
 <template>
     <div>
-        <i class="iconfont icon" :class="fontClass"></i>
+        <i class="iconfont icon-container" :class="fontClass"></i>
     </div>
 
 </template>
@@ -44,4 +44,8 @@ export default {
 
 <style scoped>
 @import url(//at.alicdn.com/t/font_2164449_nalfgtq7il.css);
+.iconfont{
+    color:inherit;
+    font-size: inherit;
+}
 </style>
