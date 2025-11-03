@@ -2,8 +2,7 @@
   <div id="app">
     <!-- <ImageLoader class="pic" src="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?fit=crop&crop=entropy&w=3456&h=2304"
      placeholder="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?w=100" @ImageLoaded="handleImageLoad"></ImageLoader> -->
-
-    <Menu></Menu>
+    <SiteAside></SiteAside>
 
   </div>
 </template>
@@ -13,11 +12,10 @@ import Avatar from './components/Avatar';
 import Icon from './components/Icon';
 import Pager from './components/Pager';
 import Empty from './components/Empty';
-import ImageLoader from './components/ImageLoader'
-import Contact from './components/SiteAside/Contact'
-import Menu from './components/SiteAside/Menu'
+import ImageLoader from './components/ImageLoader';
+import SiteAside from './components/SiteAside';
 export default {
-  components: { Avatar, Icon, Pager, Empty, ImageLoader, Contact , Menu },
+  components: { Avatar, Icon, Pager, Empty, ImageLoader, SiteAside },
   name: 'App',
   data() {
     return {
@@ -37,6 +35,4 @@ export default {
 
 
 
-<style scoped>
-
-</style>
+<style scoped></style>
