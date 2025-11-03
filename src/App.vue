@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <ImageLoader class="pic" src="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?fit=crop&crop=entropy&w=3456&h=2304"
-     placeholder="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?w=100" @ImageLoaded="handleImageLoad"></ImageLoader>
+    <!-- <ImageLoader class="pic" src="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?fit=crop&crop=entropy&w=3456&h=2304"
+     placeholder="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?w=100" @ImageLoaded="handleImageLoad"></ImageLoader> -->
+    <Contact></Contact>
+
+
   </div>
 </template>
 
@@ -11,8 +14,9 @@ import Icon from './components/Icon';
 import Pager from './components/Pager';
 import Empty from './components/Empty';
 import ImageLoader from './components/ImageLoader'
+import Contact from './components/SiteAside/Contact'
 export default {
-  components: { Avatar, Icon, Pager,Empty,ImageLoader },
+  components: { Avatar, Icon, Pager, Empty, ImageLoader, Contact },
   name: 'App',
   data() {
     return {
@@ -23,7 +27,7 @@ export default {
     handlePageChange(changePage) {
       this.currentPage = changePage;
     },
-    handleImageLoad(){
+    handleImageLoad() {
       console.log("父组件收到图片加载完成的消息")
     }
   }
@@ -33,9 +37,5 @@ export default {
 
 
 <style scoped>
-.pic{
-  width: 500px;
-  height: 500px;
-}
 
 </style>
