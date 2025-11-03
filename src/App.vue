@@ -1,8 +1,16 @@
 <template>
-  <div id="app">
-    <!-- <ImageLoader class="pic" src="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?fit=crop&crop=entropy&w=3456&h=2304"
-     placeholder="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?w=100" @ImageLoaded="handleImageLoad"></ImageLoader> -->
-    <SiteAside></SiteAside>
+  <div id="app" class="app-container">
+    <Layout>
+      <template #left>
+        <div class="aside">
+          <SiteAside />
+        </div>
+      </template>
+      <template #default>
+        中间主区域
+      </template>
+    </Layout>
+
 
   </div>
 </template>
@@ -14,8 +22,9 @@ import Pager from './components/Pager';
 import Empty from './components/Empty';
 import ImageLoader from './components/ImageLoader';
 import SiteAside from './components/SiteAside';
+import Layout from './components/Layout';
 export default {
-  components: { Avatar, Icon, Pager, Empty, ImageLoader, SiteAside },
+  components: { Avatar, Icon, Pager, Empty, ImageLoader, SiteAside, Layout },
   name: 'App',
   data() {
     return {
@@ -35,4 +44,15 @@ export default {
 
 
 
-<style scoped></style>
+<style scoped lang="less">
+@import url('@/styles/mixin.less');
+
+.app-container {
+  .self-fill(fixed);
+}
+
+.aside {
+  width: 250px;
+  height: 100%;
+}
+</style>

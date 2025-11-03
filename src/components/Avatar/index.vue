@@ -32,4 +32,5 @@ export default {
     object-fit: cover;
     display: block;
 }
+
 </style>

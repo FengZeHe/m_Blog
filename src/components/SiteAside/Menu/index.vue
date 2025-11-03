@@ -52,10 +52,8 @@ export default {
             var link = item.link.toLowerCase(); // 菜单的链接地址
             var curPathname = location.pathname.toLowerCase(); // 当前浏览器的访问路径
             if (item.startWith) {
-                console.log(curPathname.startsWith(link));
                 return curPathname.startsWith(link);
             } else {
-                console.log(curPathname === link)
                 return curPathname === link;
             }
         }

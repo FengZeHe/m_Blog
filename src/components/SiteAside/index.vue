@@ -2,8 +2,9 @@
     <div class="site-aside-container">
         <Avatar url="https://img1.baidu.com/it/u=3688443154,840390578&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=889">
         </Avatar>
-        <h1 class="title">xxxx的博客</h1>
-        <Menu></Menu>
+        <h1 class="title">He Ze Feng的博客</h1>
+        <Menu/>
+        <Contact/>
         <p class="footer">
             粤ICP备xxxxx号
         </p>
@@ -27,7 +28,6 @@ export default {
 @import url('@/styles/var.less');
 
 .site-aside-container {
-    border: 1px solid red;
     width: 100%;
     height: 100%;
     background: @dark;
@@ -36,7 +36,7 @@ export default {
     overflow-x: hidden;
     overflow-y: auto;
 
-    .avatar-container {
+    .avatar-img {
         margin: 0 auto;
     }
 
