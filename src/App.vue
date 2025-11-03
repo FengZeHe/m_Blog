@@ -2,8 +2,8 @@
   <div id="app">
     <!-- <ImageLoader class="pic" src="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?fit=crop&crop=entropy&w=3456&h=2304"
      placeholder="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?w=100" @ImageLoaded="handleImageLoad"></ImageLoader> -->
-    <Contact></Contact>
 
+    <Menu></Menu>
 
   </div>
 </template>
@@ -15,8 +15,9 @@ import Pager from './components/Pager';
 import Empty from './components/Empty';
 import ImageLoader from './components/ImageLoader'
 import Contact from './components/SiteAside/Contact'
+import Menu from './components/SiteAside/Menu'
 export default {
-  components: { Avatar, Icon, Pager, Empty, ImageLoader, Contact },
+  components: { Avatar, Icon, Pager, Empty, ImageLoader, Contact , Menu },
   name: 'App',
   data() {
     return {
