@@ -1,11 +1,11 @@
 <template>
     <nav class="menu-container">
-        <a v-for="item in items" :key="item.link" :href="item.link" :class="{ selected: isSelected(item) }">
+        <router-link :exact="item.extra" v-for="item in items" :key="item.link" :to="item.link">
             <div class="icon">
                 <Icon :iconType="item.icon"></Icon>
             </div>
             <span>{{ item.title }}</span>
-        </a>
+        </router-link>
     </nav>
 </template>
 
@@ -22,41 +22,36 @@ export default {
                     link: "/",
                     title: "首页",
                     icon: "home",
+                    extra: true,
                 },
                 {
                     link: "/blog",
                     title: "文章",
                     icon: "blog",
-                    startWith: true, // 只要当前路径以link开头，当前菜单就是选中的
+                    extra: false,
                 },
                 {
                     link: "/about",
                     title: "关于我",
                     icon: "about",
+                    extra: true,
                 },
                 {
                     link: "/project",
                     title: "项目&效果",
                     icon: "code",
+                    extra: true,
                 },
                 {
                     link: "/message",
                     title: "留言板",
                     icon: "chat",
+                    extra: true,
                 },
             ],
         }
     },
     methods: {
-        isSelected(item) {
-            var link = item.link.toLowerCase(); // 菜单的链接地址
-            var curPathname = location.pathname.toLowerCase(); // 当前浏览器的访问路径
-            if (item.startWith) {
-                return curPathname.startsWith(link);
-            } else {
-                return curPathname === link;
-            }
-        }
     }
 }
 </script>
@@ -72,7 +67,7 @@ export default {
 
 
     a {
-        &.selected {
+        &.router-link-active {
             background: darken(@words, 3%);
         }
 
@@ -81,10 +76,10 @@ export default {
         margin: 12px 0;
         height: 45px;
         align-items: center;
-        padding: 0 50px;
+        padding: 0 25px;
 
         .icon {
-            width: 45px;
+            width: 30px;
         }
 
         &:hover {

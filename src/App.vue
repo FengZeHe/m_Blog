@@ -8,7 +8,9 @@
       </template>
       <template #default>
         中间主区域
+        <router-view></router-view>
       </template>
+
     </Layout>
 
 
