@@ -7,7 +7,6 @@
         </div>
       </template>
       <template #default>
-        中间主区域
         <router-view></router-view>
       </template>
 
@@ -43,8 +42,7 @@ export default {
     }
   },
   mounted(){
-    console.log("调用banner")
-    getBanners()
+
   }
 }
 </script>

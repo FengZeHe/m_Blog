@@ -29,19 +29,16 @@
     display: flex;
 
     .left {
-        background-color: @primary ;
         flex: 0 0 auto;
         overflow: hidden;
     }
 
 
     .main {
-        background-color: @gray;
         flex: 1 1 auto;
     }
 
     .right {
-        background-color: @success;
         flex: 0 0 auto;
         overflow: hidden;
     }
