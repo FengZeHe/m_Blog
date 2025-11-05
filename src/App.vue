@@ -25,6 +25,7 @@ import Empty from './components/Empty';
 import ImageLoader from './components/ImageLoader';
 import SiteAside from './components/SiteAside';
 import Layout from './components/Layout';
+import bennerReq, { getBanners } from '@/api/banner'
 export default {
   components: { Avatar, Icon, Pager, Empty, ImageLoader, SiteAside, Layout },
   name: 'App',
@@ -40,6 +41,10 @@ export default {
     handleImageLoad() {
       console.log("父组件收到图片加载完成的消息")
     }
+  },
+  mounted(){
+    console.log("调用banner")
+    getBanners()
   }
 }
 </script>
