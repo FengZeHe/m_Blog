@@ -1,5 +1,5 @@
 <template>
-    <div >CarouseLitem</div>
+    <div class="carouse-container">CarouseLitem</div>
 </template>
 
 <script>
@@ -8,4 +8,9 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="less" scoped>
+.carouse-container{
+    color: #fff;
+}
+
+</style>

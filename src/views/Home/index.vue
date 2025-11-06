@@ -33,7 +33,7 @@ export default {
   data() {
     return {
       banners: [],
-      index: 1,
+      index: 0,
       containerHeight: 0,
     }
   },
@@ -51,12 +51,12 @@ export default {
   },
   computed: {
     marginTop() {
-      return this.index * this.containerHeight + "px";
+      return -this.index * this.containerHeight + "px";
     }
   },
 
   mounted() {
-  this.containerHeight = this.$refs.container.clientHeight;
+    this.containerHeight = this.$refs.container.clientHeight;
   }
 }
 </script>
@@ -67,6 +67,8 @@ export default {
 @import url('@/styles/var.less');
 
 .home-container {
+  background: @dark;
+
   width: 100%;
   height: 100%;
   position: relative;
@@ -80,9 +82,9 @@ export default {
 }
 
 .carousel-container {
-  background: @dark;
   width: 100%;
   height: 100%;
+  transition: 500ms;
 
   li {
     width: 100%;
