@@ -16,7 +16,7 @@
     </div>
 
     <ul class="indicator">
-      <li v-for="(item, i) in banners" :key="item.id" :class="{ active: i === index }">
+      <li v-for="(item, i) in banners" :key="item.id" :class="{ active: i === index }" @click="switchTo(i)">
 
       </li>
     </ul>
@@ -47,7 +47,6 @@ export default {
   methods: {
     switchTo(i) {
       this.index = i;
-      console.log(this.index);
     }
   },
   computed: {
@@ -57,7 +56,7 @@ export default {
   },
 
   mounted() {
-    console.log(this.$refs.container.clientHeight)
+  this.containerHeight = this.$refs.container.clientHeight;
   }
 }
 </script>
@@ -107,6 +106,7 @@ export default {
   &.icon-down {
     top: auto;
     bottom: 15px;
+    animation: jump-down 2s infinite;
   }
 
   @jump :5px;
@@ -124,6 +124,23 @@ export default {
       transform: translate(-50%, @jump);
     }
   }
+
+  @keyframes jump-down {
+    0% {
+      transform: translate(-50%, -@jump);
+    }
+
+    50% {
+      transform: translate(-50%, @jump);
+    }
+
+    100% {
+      transform: translate(-50%, -@jump);
+    }
+  }
+
+
+
 }
 
 
