@@ -42,10 +42,10 @@ export default {
             setTimeout(() => {
                 this.showOriginalPic = true
                 this.$emit("ImageLoaded")
+
                 // 等待时间完成
             }, this.duration);
 
-            this.$emit("load");
         }
     }
 

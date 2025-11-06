@@ -65,7 +65,11 @@ export default {
     // 当滚动完成时
     handleTransitionEnd() {
       this.switching = false;
-    }
+    },
+    handleResize() {
+      this.containerHeight = this.$refs.container.clientHeight;
+    },
+
   },
   computed: {
     marginTop() {
@@ -75,6 +79,10 @@ export default {
 
   mounted() {
     this.containerHeight = this.$refs.container.clientHeight;
+    window.addEventListener("resize", this.handleResize);
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.handleResize);
   }
 }
 </script>
@@ -85,7 +93,7 @@ export default {
 @import url('@/styles/var.less');
 
 .home-container {
-  background: @dark;
+  // background: @dark;
 
   width: 100%;
   height: 100%;
