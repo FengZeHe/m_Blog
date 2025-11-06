@@ -1,8 +1,8 @@
 <template>
-  <div class="home-container" ref="container">
-    <ul class="carousel-container" :style="{ marginTop }">
+  <div class="home-container" ref="container" @wheel="handleWheel">
+    <ul class="carousel-container" :style="{ marginTop }" @transitionend="handleTransitionEnd">
       <li v-for="item in banners" :key="item.id">
-        <Carouselitem />
+        <Carouselitem :carousel="item" />
       </li>
     </ul>
 
@@ -35,6 +35,7 @@ export default {
       banners: [],
       index: 0,
       containerHeight: 0,
+      switching: false, // 判断是否在滚动
     }
   },
   components: {
@@ -47,6 +48,23 @@ export default {
   methods: {
     switchTo(i) {
       this.index = i;
+    },
+    handleWheel(e) {
+      if (this.switching) {
+        return;
+      }
+
+      if (e.deltaY < -5 && this.index > 0) {
+        this.switching = true;
+        this.switchTo(this.index - 1);
+      } else if (e.deltaY > 5 && this.index < this.banners.length - 1) {
+        this.switching = true;
+        this.switchTo(this.index + 1);
+      }
+    },
+    // 当滚动完成时
+    handleTransitionEnd() {
+      this.switching = false;
     }
   },
   computed: {

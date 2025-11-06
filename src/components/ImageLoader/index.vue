@@ -15,11 +15,9 @@ export default {
     props: {
         src: {
             type: String,
-            required: true,
         },
         placeholder: {
             type: String,
-            required: true,
         },
         duration: {
             type: Number,
@@ -44,9 +42,10 @@ export default {
             setTimeout(() => {
                 this.showOriginalPic = true
                 this.$emit("ImageLoaded")
-                console.log("都弄好了")
                 // 等待时间完成
             }, this.duration);
+
+            this.$emit("load");
         }
     }
 
