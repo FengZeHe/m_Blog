@@ -1,5 +1,5 @@
 <template>
-  <div class="home-container" ref="container" @wheel="handleWheel">
+  <div class="home-container" ref="container" @wheel="handleWheel" v-loading="isLoading">
     <ul class="carousel-container" :style="{ marginTop }" @transitionend="handleTransitionEnd">
       <li v-for="item in banners" :key="item.id">
         <Carouselitem :carousel="item" />
@@ -36,6 +36,7 @@ export default {
       index: 0,
       containerHeight: 0,
       switching: false, // 判断是否在滚动
+      isLoading: true,
     }
   },
   components: {
@@ -44,6 +45,7 @@ export default {
   },
   async created() {
     this.banners = await getBanners();
+    this.isLoading = false;
   },
   methods: {
     switchTo(i) {
