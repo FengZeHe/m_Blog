@@ -37,6 +37,9 @@ export default {
         this.mouseY = this.center.y;
         window.addEventListener("resize", this.setSize);
     },
+    destroyed() {
+        window.removeEventListener("resize", this.setSize);
+    },
     methods: {
         showWords() {
             this.$refs.title.style.opacity = 1;
