@@ -6,7 +6,8 @@
       </template>
 
       <template #right>右侧区域
-        <RightList :list="list"></RightList>
+        <ArticleCategory></ArticleCategory>
+
       </template>
 
     </Layout>
@@ -20,11 +21,13 @@
 import Layout from '@/components/Layout'
 import ArticleList from './components/ArticleList.vue';
 import RightList from './components/RightList.vue';
+import ArticleCategory from './components/ArticleCategory.vue';
 export default {
   components: {
     RightList,
     Layout,
     ArticleList,
+    ArticleCategory,
   },
   data() {
     return {
