@@ -61,12 +61,12 @@ export default {
             // 跳转到 当前的分类id  当前的页容量  newPage的页码
             if (item.id === -1) {
                 this.$router.push({
-                    name: "Blog",
+                    name: "Article",
                     query,
                 });
             } else {
                 this.$router.push({
-                    name: "CategoryBlog",
+                    name: "CategoryArticle",
                     query,
                     params: {
                         categoryId: item.id,
