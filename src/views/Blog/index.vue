@@ -7,9 +7,7 @@
 
       <template #right>
         <ArticleCategory></ArticleCategory>
-
       </template>
-
     </Layout>
 
 
