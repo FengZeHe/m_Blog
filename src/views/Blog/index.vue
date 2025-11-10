@@ -5,7 +5,7 @@
         <ArticleList></ArticleList>
       </template>
 
-      <template #right>右侧区域
+      <template #right>
         <ArticleCategory></ArticleCategory>
 
       </template>

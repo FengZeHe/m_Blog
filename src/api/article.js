@@ -9,3 +9,7 @@ export async function getArticles(page = 1, limit = 10, categoryid = -1) {
         }
     });
 }
+
+export async function getArticleCategories() {
+    return await request.get("/api/blogtype");
+}

@@ -25,7 +25,7 @@ export default {
                     extra: true,
                 },
                 {
-                    link: "/blog",
+                    link: "/article",
                     title: "文章",
                     icon: "blog",
                     extra: false,
