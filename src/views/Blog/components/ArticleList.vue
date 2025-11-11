@@ -37,8 +37,9 @@ import { getArticles } from '@/api/article';
 import fetchData from '@/mixins/fetchData';
 import Pager from '@/components/Pager';
 import { formatDate } from '@/utils';
+import mainScroll from '@/mixins/mainScroll';
 export default {
-  mixins: [fetchData({})],
+  mixins: [fetchData({}),mainScroll("mainContainer")],
   data() {
     return {
 
@@ -47,6 +48,11 @@ export default {
   components: {
     Pager
   },
+  mounted() {
+    this.$bus.$on("setMainScroll", this.handleSetMainScroll);
+    this.$refs.mainContainer.addEventListener("scroll", this.handleScroll);
+  },
+
   computed: {
     routeInfo() {
       const categoryId = +this.$route.params.categoryId || -1;
@@ -70,7 +76,7 @@ export default {
     },
     handlePageChange(newPage) {
       console.log("newPages", newPage)
- const query = {
+      const query = {
         page: newPage,
         limit: this.routeInfo.limit,
       };
@@ -91,10 +97,26 @@ export default {
           },
         });
       }
-    }
+    },
+    handleScroll() {
+      this.$bus.$emit("mainScroll", this.$refs.mainContainer);
+    },
+    handleSetMainScroll(scrollTop) {
+      this.$refs.mainContainer.scrollTop = scrollTop;
+    },
   },
-  created() {
-
+  beforeDestroy() {
+    this.$bus.$emit("mainScroll");
+    this.$refs.mainContainer.removeEventListener("scroll", this.handleScroll);
+    this.$bus.$off("setMainScroll", this.handleSetMainScroll);
+  },
+  watch: {
+    async $route() {
+      this.isLoading = true;
+      this.$refs.container.scrollTop = 0;
+      this.data = await this.fetchData();
+      this.isLoading = false;
+    }
   }
 
 }
