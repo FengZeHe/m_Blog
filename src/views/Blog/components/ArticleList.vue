@@ -5,7 +5,7 @@
       <li v-for="item in data.rows" :key="item.id">
         <div class="thumb" v-if="item.thumb">
           <a href="">
-            <img :src="item.thumb" :alt="item.title" :title="item.title" />
+            <img v-lazy="item.thumb" :alt="item.title" :title="item.title" />
           </a>
         </div>
 
