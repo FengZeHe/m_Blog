@@ -1,11 +1,11 @@
 <template>
-  <div class="article-list-container" ref="container" v-loading="isLoading">
+  <div class="article-list-container" ref="mainContainer" v-loading="isLoading">
 
     <ul>
       <li v-for="item in data.rows" :key="item.id">
         <div class="thumb" v-if="item.thumb">
           <a href="">
-            <img v-lazy="item.thumb" :alt="item.title" :title="item.title" />
+            <img :src="item.thumb" :alt="item.title" :title="item.title" />
           </a>
         </div>
 
@@ -49,8 +49,8 @@ export default {
     Pager
   },
   mounted() {
-    this.$bus.$on("setMainScroll", this.handleSetMainScroll);
-    this.$refs.mainContainer.addEventListener("scroll", this.handleScroll);
+    // this.$bus.$on("setMainScroll", this.handleSetMainScroll);
+    // this.$refs.mainContainer.addEventListener("scroll", this.handleScroll);
   },
 
   computed: {

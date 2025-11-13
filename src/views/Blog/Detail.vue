@@ -40,10 +40,10 @@ export default {
     }
   },
   mounted() {
-    this.$refs.mainContainer.addEventListener("scroll", this.handleScroll);
+    // this.$refs.mainContainer.addEventListener("scroll", this.handleScroll);
   },
   destroyed() {
-    this.$refs.mainContainer.removeEventListener("scroll", this.handleScroll);
+    // this.$refs.mainContainer.removeEventListener("scroll", this.handleScroll);
   },
   updated() {
     const hash = location.hash;

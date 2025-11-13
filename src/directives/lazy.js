@@ -37,7 +37,6 @@ function handleScroll() {
     setImages();
 }
 
-eventBus.$on("mainScroll", debounce(handleScroll, 50));
 
 export default {
     inserted(el, bindings) {
