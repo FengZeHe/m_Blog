@@ -14,7 +14,7 @@
 import { formatDate } from "@/utils";
 export default {
     props: {
-        article: {
+        blog: {
             type: Object,
             require: true,
         }
