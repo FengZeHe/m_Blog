@@ -2,11 +2,7 @@
     <div class="article-category-container" v-loading="isLoading">
         <h2>文章分类</h2>
         <RightList :list="list" @select="handleSelect" />
-
     </div>
-
-
-
 </template>
 
 <script>
@@ -44,8 +40,6 @@ export default {
             }));
         },
     },
-
-
     components: {
         RightList
     },

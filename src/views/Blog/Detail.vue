@@ -35,15 +35,7 @@ export default {
     async fetchData() {
       return await getBlog(this.$route.params.id);
     },
-    handleScroll() {
-      this.$bus.$emit("mainScroll", this.$refs.mainContainer);
-    }
-  },
-  mounted() {
-    // this.$refs.mainContainer.addEventListener("scroll", this.handleScroll);
-  },
-  destroyed() {
-    // this.$refs.mainContainer.removeEventListener("scroll", this.handleScroll);
+
   },
   updated() {
     const hash = location.hash;
@@ -52,8 +44,6 @@ export default {
       location.hash = hash;
     }, 50);
   },
-
-
 };
 </script>
 

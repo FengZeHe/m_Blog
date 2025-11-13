@@ -4,21 +4,44 @@
     <ul>
       <li v-for="item in data.rows" :key="item.id">
         <div class="thumb" v-if="item.thumb">
-          <a href="">
-            <img :src="item.thumb" :alt="item.title" :title="item.title" />
-          </a>
+          <RouterLink :to="{
+            name: 'ArticleDetail',
+            params: {
+              id: item.id
+            }
+          }">
+            <a href="">
+              <img :src="item.thumb" :alt="item.title" :title="item.title" />
+            </a>
+          </RouterLink>
         </div>
 
         <div class="main">
-          <a href="">
-            <h2>{{ item.title }}</h2>
-          </a>
-
+          <RouterLink :to="{
+            name: 'ArticleDetail',
+            params: {
+              id: item.id
+            }
+          }">
+            <a href="">
+              <h2>{{ item.title }}</h2>
+            </a>
+          </RouterLink>
           <div class="aside">
             <span>日期：{{ formatDate(item.createDate) }}</span>
             <span>浏览：{{ item.scanNumber }}</span>
             <span>评论：{{ item.commentNumber }}</span>
-            <a href="/article/cate/8" class="">{{ item.category.name }}</a>
+            <RouterLink :to="{
+              name: 'CategoryArticle',
+              params: {
+                categoryId: item.category.id,
+              },
+            }">
+
+            </RouterLink>
+
+
+            <!-- <a href="/article/cate/8" class="">{{ item.category.name }}</a> -->
           </div>
           <div class="desc">
             {{ item.description }}
@@ -38,8 +61,9 @@ import fetchData from '@/mixins/fetchData';
 import Pager from '@/components/Pager';
 import { formatDate } from '@/utils';
 import mainScroll from '@/mixins/mainScroll';
+import { RouterLink } from 'vue-router';
 export default {
-  mixins: [fetchData({}),mainScroll("mainContainer")],
+  mixins: [fetchData({}), mainScroll("mainContainer")],
   data() {
     return {
 
@@ -98,12 +122,7 @@ export default {
         });
       }
     },
-    handleScroll() {
-      this.$bus.$emit("mainScroll", this.$refs.mainContainer);
-    },
-    handleSetMainScroll(scrollTop) {
-      this.$refs.mainContainer.scrollTop = scrollTop;
-    },
+
   },
   beforeDestroy() {
     this.$bus.$emit("mainScroll");
@@ -113,7 +132,7 @@ export default {
   watch: {
     async $route() {
       this.isLoading = true;
-      this.$refs.container.scrollTop = 0;
+      this.$refs.mainContainer.scrollTop = 0;
       this.data = await this.fetchData();
       this.isLoading = false;
     }
